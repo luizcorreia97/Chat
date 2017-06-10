@@ -16,7 +16,7 @@
 
         <LinearLayout
             android:layout_width="363dp"
-            android:layout_height="485dp"
+            android:layout_height="511dp"
             android:orientation="horizontal">
 
             <ListView
