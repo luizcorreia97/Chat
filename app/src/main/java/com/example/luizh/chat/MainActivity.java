@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         ListView lv = (ListView)findViewById(R.id.listview);
 
-        //final AdapterCustom arrayChats = new AdapterCustom<Chat>(new Arraylist<Chat>(), this);
-        final ArrayAdapter<Chat> arrayChats = new ArrayAdapter<Chat>(getApplication(),android.R.layout.simple_list_item_1);
+        final AdapterCustom arrayChats = new AdapterCustom(new ArrayList<Chat>(), this);
+        //final ArrayAdapter<Chat> arrayChats = new ArrayAdapter<Chat>(getApplication(),android.R.layout.simple_list_item_1);
 
         lv.setAdapter(arrayChats);
 

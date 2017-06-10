@@ -26,7 +26,7 @@ public class AsyncTaskSendMessage extends AsyncTask<String,
             jsonobj.put("mensagem", c.getMessage());
 
             HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppostreq = new HttpPost("http://10.30.199.240:8080/chatrest/rest/servicorest/post");
+            HttpPost httppostreq = new HttpPost("http://192.168.43.249:8080/chatrest/rest/servicorest/post");
 
             StringEntity se = new StringEntity(jsonobj.toString());
             se.setContentType("application/json;charset=UTF-8");

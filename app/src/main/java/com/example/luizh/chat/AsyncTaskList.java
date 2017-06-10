@@ -22,8 +22,8 @@ import android.widget.ArrayAdapter;
 public class AsyncTaskList extends AsyncTask<String, String, String> {
 
     private Activity activity;
-    //private AdapterCustom arrayAdapterChat;
-    private ArrayAdapter<Chat> arrayAdapterChat;
+    private AdapterCustom arrayAdapterChat;
+    //private ArrayAdapter<Chat> arrayAdapterChat;
 
     @Override
     protected String doInBackground(String... params) {
@@ -35,7 +35,7 @@ public class AsyncTaskList extends AsyncTask<String, String, String> {
             HttpClient httpclient = new DefaultHttpClient();
 
             // 2. make POST request to the given URL
-            HttpGet httpGet = new HttpGet("http://10.30.199.240:8080/chatrest/rest/servicorest");
+            HttpGet httpGet = new HttpGet("http://192.168.43.249:8080/chatrest/rest/servicorest");
 
             HttpResponse httpResponse = httpclient.execute(httpGet);
 
@@ -47,8 +47,8 @@ public class AsyncTaskList extends AsyncTask<String, String, String> {
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    //arrayAdapterChat.getChats().clear();
-                    arrayAdapterChat.clear();
+                    arrayAdapterChat.getChats().clear();
+                    //arrayAdapterChat.clear();
                 }
             });
 
@@ -63,9 +63,9 @@ public class AsyncTaskList extends AsyncTask<String, String, String> {
                         c.setName(jsonObject.optString("nome").toString());
                         c.setMessage(jsonObject.optString("mensagem").toString());
 
-                        //arrayAdapterChat.getChats().add(c);
-                        //arrayAdapterChat.notifyDataSetChanged();
-                        arrayAdapterChat.add(c);
+                        arrayAdapterChat.getChats().add(c);
+                        arrayAdapterChat.notifyDataSetChanged();
+                        //arrayAdapterChat.add(c);
 
                     }
                 });
@@ -86,13 +86,13 @@ public class AsyncTaskList extends AsyncTask<String, String, String> {
         this.activity = activity;
     }
 
-    //public AdapterCustom getArrayAdapterChat() {
-    public ArrayAdapter<Chat> getArrayAdapterChat() {
+    public AdapterCustom getArrayAdapterChat() {
+    //public ArrayAdapter<Chat> getArrayAdapterChat() {
         return arrayAdapterChat;
     }
 
-    //public void setArrayAdapterChat(AdapterCustom arrayAdapterChat) {
-    public void setArrayAdapterChat(ArrayAdapter<Chat> arrayAdapterChat) {
+    public void setArrayAdapterChat(AdapterCustom arrayAdapterChat) {
+    //public void setArrayAdapterChat(ArrayAdapter<Chat> arrayAdapterChat) {
         this.arrayAdapterChat = arrayAdapterChat;
     }
 }
